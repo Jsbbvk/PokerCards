@@ -43,12 +43,20 @@ function initCardImages() {
     }
 }
 
+var cardPlacementOffset = 50;
+var numCardPlacement = 0;
 function addDraggableCard(cStr) {
     //TODO give the element an id/data-attr
     //TODO place card outside of card area
     var nC = document.createElement("DIV");
     nC.classList.add("card");
     nC.classList.add("draggable");
+    nC.style.transform = "translate(0, " + (cardPlacementOffset * numCardPlacement) + "px)";
+    nC.setAttribute("data-y", (cardPlacementOffset*numCardPlacement));
+    if (numCardPlacement == 5) {
+        numCardPlacement = 0;
+    }
+    numCardPlacement++;
     nC.appendChild(cardImages[cStr.tag].cloneNode(true));
     document.getElementById("cardArea").appendChild(nC);
 
