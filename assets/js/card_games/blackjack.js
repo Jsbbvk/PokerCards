@@ -46,9 +46,13 @@ function initBlackJack() {
                 isReadyNextRound = false;
                 document.getElementById("cardArea").innerHTML = "";
 
+                var co = 0;
                 dck.forEach(function(crd) {
-                    addDraggableCard(crd);
-                    addedCard(crd);
+                    setTimeout(function() {
+                        addDraggableCard(crd);
+                        addedCard(crd);
+                    }, co*300);
+                    co++;
                 });
 
                 $('#bj_display_players_button').css("display", "block");
@@ -146,9 +150,13 @@ function initBlackJack() {
         socket.emit('get player hand deck', roomID, nameID, function(dck) {
             $('#cardArea').html("");
             //TODO change placement so not stacked on top of each other
+            var co = 0;
             dck.forEach(function(crd) {
-                addDraggableCard(crd);
-                addedCard(crd);
+                setTimeout(function() {
+                    addDraggableCard(crd);
+                    addedCard(crd);
+                }, co*300);
+                co++;
             });
 
             $('#blackjack_buttons').css("display", "block");
@@ -378,9 +386,13 @@ function initBlackJack() {
                        isReadyNextRound = false;
                        document.getElementById("cardArea").innerHTML = "";
 
+                       var co = 0;
                        dck.forEach(function(crd) {
-                           addDraggableCard(crd);
-                           addedCard(crd);
+                           setTimeout(function() {
+                               addDraggableCard(crd);
+                               addedCard(crd);
+                           }, co*300);
+                           co++;
                        });
 
                        $('#bj_display_players_button').css("display", "block");

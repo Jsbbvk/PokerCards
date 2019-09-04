@@ -22,7 +22,7 @@ function initializeDraggables() {
 
 
     $('.draggable').on("mousedown touchstart", function(e) {
-        $(this).css('z-index', maxZIndex++);
+        $(this).css('z-index', ++maxZIndex);
         $(this).addClass("selectedCard");
     });
 
